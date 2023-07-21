@@ -8,9 +8,20 @@ pipeline {
     }
 
     stage('Check list') {
-      steps {
-        sh '''ls -al
+      parallel {
+        stage('Check list') {
+          steps {
+            sh '''ls -al
 '''
+          }
+        }
+
+        stage('say Hello') {
+          steps {
+            sh 'echo "Hello Jenkins"'
+          }
+        }
+
       }
     }
 
