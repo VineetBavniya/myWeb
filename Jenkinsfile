@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('gitplugin') {
       steps {
-        git(url: 'https://github.com/VineetBavniya/myWeb/tree/thanks', branch: 'thanks')
+        git(url: 'https://github.com/VineetBavniya/myWeb.git', branch: 'thanks')
       }
     }
 
