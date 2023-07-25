@@ -31,5 +31,11 @@ pipeline {
       }
     }
 
+    stage('Kube') {
+      steps {
+        sh 'kubectl get node -o wide'
+      }
+    }
+
   }
 }
