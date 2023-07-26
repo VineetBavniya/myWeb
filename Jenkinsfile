@@ -35,5 +35,11 @@ pipeline {
       }
     }
 
+    stage('CheckNode') {
+      steps {
+        sh 'kubectl get nodes'
+      }
+    }
+
   }
 }
