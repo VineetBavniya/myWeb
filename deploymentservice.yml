@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: raw101/helloweb:latest
+        image: raw101/Web:latest
         ports:
         - containerPort: 3000
         
