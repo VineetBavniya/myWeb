@@ -29,5 +29,11 @@ pipeline {
       }
     }
 
+    stage('Push Image') {
+      steps {
+        sh 'docker push raw101/helloweb:latest'
+      }
+    }
+
   }
 }
