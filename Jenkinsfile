@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Check items') {
+      steps {
+        sh 'ls -la'
+      }
+    }
+
   }
 }
