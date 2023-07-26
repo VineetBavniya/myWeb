@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t helloweb .'
+        sh 'docker build -t raw101/helloweb .'
       }
     }
 
@@ -31,7 +31,7 @@ pipeline {
 
     stage('Push Image') {
       steps {
-        sh 'docker push helloweb:latest'
+        sh 'docker push raw101/helloweb:latest'
       }
     }
 
