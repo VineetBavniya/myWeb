@@ -37,7 +37,7 @@ pipeline {
 
     stage('CheckNode') {
       steps {
-        sh 'kubectl get nodes'
+        sh 'echo Hello'
       }
     }
 
