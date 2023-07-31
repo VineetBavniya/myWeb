@@ -20,7 +20,7 @@ spec:
       - name: nodeserver
         image: raw101/web101:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         
         
 ---
@@ -32,9 +32,9 @@ metadata:
 spec:
   selector:
     app: nodeapp 
-  type: ClusterIP
+  type: NodePort
   ports:
   - protocol: TCP
     port: 5000
-    targetPort: 3000
+    targetPort: 8080
     nodePort: 31110
