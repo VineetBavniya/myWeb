@@ -19,7 +19,7 @@ spec:
         - name: hello-flask
           image: raw101/hello-flask
           ports:
-            - containerPort: 8080
+            - containerPort: 80
 
 
 ---
@@ -38,4 +38,4 @@ spec:
   - name: http
     protocol: TCP
     port: 3000
-    targetPort: 8080
+    targetPort: 80
