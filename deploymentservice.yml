@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hello-flask
-          image: raw101/helloweb
+          image: raw101/web101
           ports:
             - containerPort: 8080
 
