@@ -35,7 +35,7 @@ spec:
   selector:
     app: hello-flask
   ports:
-  - name: htto
+  - name: http
     protocol: TCP
     port: 3000
     targetPort: 8080
