@@ -1,0 +1,54 @@
+pipeline{
+    agent any
+    stages{
+        stage('git clone'){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubid', url: 'https://github.com/VineetBavniya/myWeb.git']])
+            }
+        }
+
+
+        stage('Check out itmes'){
+            steps{
+                sh 'ls -la'
+            }
+        }
+
+
+
+        stage('deployment on kubernetes'){
+            
+            steps{
+
+                kubeconfig(caCertificate: '''-----BEGIN CERTIFICATE-----                                                                                                                      
+MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p                                                                                 
+a3ViZUNBMB4XDTIzMDYyNTEwMTk0OFoXDTMzMDYyMzEwMTk0OFowFTETMBEGA1UE                                                                                 
+AxMKbWluaWt1YmVDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALoV                                                                                 
+hcxMyYw2J1JNZRjNCVT6Sw0mwcutyRdqivxyr/YrlOyG4YRKRV0+hkvzTy6ltcAO                                                                                 
+vANyykkh4DVGh4stPVaqOeJCfAgXrn37AF32LpOHuEmsNTpl8UsEsIUtAtosMzK1                                                                                 
+MWQTPAW729YnU3lWn+R45INWo72U8owwJM9+PpjAZvBKKwbDreuEzqebo111NDD9                                                                                 
+Qv4T0MP0eTx6zR6OdvXAvPMFMts5O3szEfFOOL+Zx3Uy1olhcL0uaoYaP9dOZmBO                                                                                 
+oRx3FRfE/TTAG0Xg3nVEP9vWRYbCm1zXwV8ze5mLCCj42tGCbhiOcgKo4XkeLCeR                                                                                 
+ZPuX2tFpETFq3WdLbSsCAwEAAaNhMF8wDgYDVR0PAQH/BAQDAgKkMB0GA1UdJQQW                                                                                 
+MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQW
+BBSo1jTgG9NAZiw6q47vhw9L2yqZoTANBgkqhkiG9w0BAQsFAAOCAQEAF4uXbyF8
+dbtYIL99OmMhH0wvwsg3HubN3OL3i1MPZ+9pCqcI7nyoXp2mH5nLevxIaX9rYhco
+Xl4730aQEF7flLTPBAhuosWXoNZFVzqhnsQOxxqqDJHyeMeVpFTrrGPscNgAQZ4w
+E3jiv1spYtzHgMj2sgrB8cn69vK3bbpYBUM6Yg1JZkhjd5mn4hYVrg3oT0A5gRNh
+jBIwN8iKoJIrvFxfSQrxarvElOsclvAnpbLdZMMJ+FrBTlNhH8ZZpx4V044fQJWF
+2dHyeAgsERKvo+rziNHw7+v7bKzczZ38AUDItJaWPmS8mmCfUekoaCZafengQA86
+7WcUykGz0LXddQ==
+-----END CERTIFICATE-----''', credentialsId: 'newkind', serverUrl: 'https://127.0.0.1:38775') {
+    // some block
+
+    sh 'kubectl apply -f deploymentservice.yml' 
+}
+
+
+
+            }
+        }
+
+
+    }
+}
