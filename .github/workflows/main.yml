@@ -1,1 +1,16 @@
+name: kubernetes deployment
 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-host
+
+    step:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
