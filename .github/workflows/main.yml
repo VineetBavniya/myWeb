@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+env:
+  KUBE_CONFIG_DATA:  ${{ secrets.KUBE_CONFIG_DATA }}
+
 jobs:
   deploy:
     runs-on: self-hosted
@@ -13,4 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Deploy app
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f deploymentservice.yml
         
