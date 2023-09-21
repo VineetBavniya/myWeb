@@ -22,5 +22,5 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply deploymentservice.yml 
+          args: apply -f deploymentservice.yml 
         
