@@ -23,7 +23,7 @@ jobs:
       - name: check kubectl command
         uses: actions-hub/kubectl@master
         with:
-          run: kubectl apply -f deploymentservice.yml
+          args: kubectl apply -f deploymentservice.yml
   
         
 
