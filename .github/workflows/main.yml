@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  KUBE_CONFIG:  ${{ secrets.KUBE_CONFIG_DATA }}
+  KUBE_CONFIG:  ${{ secrets.KUBE_CONFIG }}
 
 jobs:
   deploy:
@@ -17,12 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy app
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-        with:
-          args: apply -f deploymentservice.yml 
+      # - name: Deploy app
+      #   uses: actions-hub/kubectl@master
+      #   env:
+      #     KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
+      #   with:
+      #     args: apply -f deploymentservice.yml 
 
       # - name: Trigger deploy
       #   uses: phamquyhai/kubernetes-action@master
@@ -30,4 +30,9 @@ jobs:
       #     KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       #   with:
       #     args: apply deployment.yaml
+
+      - name: Deploy App(Deployment)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f deploymentservice.yml
         
