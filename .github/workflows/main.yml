@@ -20,6 +20,8 @@ jobs:
         run: echo hello linux
       - name: check list
         run: ls -al
+      - name: check kubectl command
+        run: kubectl --help
   
         
 
