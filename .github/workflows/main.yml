@@ -16,9 +16,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: check 
+        run: echo hello linux
+  
+        
 
-      - name: Deploy App(Deployment)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f deploymentservice.yml
+      # - name: Deploy App(Deployment)
+      #   uses: actions-hub/kubectl@master
+      #   with:
+      #     args: apply -f deploymentservice.yml
         
