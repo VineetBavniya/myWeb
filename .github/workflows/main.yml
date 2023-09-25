@@ -21,10 +21,8 @@ jobs:
       - name: check list
         run: ls -al
       - name: check kubectl command
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f deploymentservice.yml
-  
+        run: kubectl apply -f deploymentservice.yml
+       
         
 
       # - name: Deploy App(Deployment)
