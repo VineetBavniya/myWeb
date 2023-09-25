@@ -6,8 +6,8 @@ on:
     branches:
       - main
 
-env:
-  KUBE_CONFIG:  ${{ secrets.KUBE_CONFIG }}
+# env:
+#   KUBE_CONFIG:  ${{ secrets.KUBE_CONFIG }}
 
 jobs:
   deploy:
